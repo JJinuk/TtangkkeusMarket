@@ -13,7 +13,7 @@ class AddState extends GetxController {
   int Image_q = 0;
   late String Image_Url;
 
-  late String downloadURL;
+  late String downloadUrl;
 
   late File _image;
   final picker = ImagePicker();
@@ -83,7 +83,7 @@ class AddState extends GetxController {
     // 파일 업로드 완료까지 대기
     TaskSnapshot taskSnapshot = await uploadTask;
 
-    String downloadURL = await ref.getDownloadURL();
+    String downloadUrl = await ref.getDownloadURL();
 
     Image_q++;
 
@@ -92,12 +92,12 @@ class AddState extends GetxController {
         product_price.text,
         product_stock.text,
         product_description.text,
-        downloadURL,
+        downloadUrl,
         phone_number.text,
         count_number.text,
         bank_name.text);
 
-    return downloadURL;
+    return downloadUrl;
   }
 
 //  void reset() {
