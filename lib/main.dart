@@ -11,7 +11,6 @@ import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:ttangkkeusmarket/app/core/models/auth_model.dart';
-import 'package:ttangkkeusmarket/app/core/models/query_model.dart';
 import 'package:ttangkkeusmarket/app/src/custom_navigation_bar.dart';
 import 'package:ttangkkeusmarket/app/src/providers/bottom_nav_provider.dart';
 import 'package:ttangkkeusmarket/app/src/modules/login/login_view.dart';
@@ -46,7 +45,7 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(create: (_) => FirebaseAuthProvider()),
           // ChangeNotifierProvider(create: (_) => ItemProvider()),
-          ChangeNotifierProvider(create: (_) => QueryProvider()),
+          // ChangeNotifierProvider(create: (_) => QueryProvider()),
           // ChangeNotifierProvider(create: (_) => CartProvider()),
         ],
         child: MaterialApp(
@@ -59,8 +58,8 @@ class MyApp extends StatelessWidget {
             //'/': (context) => CustomNavBar(),
             '/login': (BuildContext context) => const LoginView(),
             '/register': (BuildContext context) => const BuyerRegisterView(),
-            '/detail': (BuildContext context) => DetailScreen(),
-            '/search': (BuildContext context) => const SearchScreen(),
+            '/detail': (BuildContext context) => DetailView(),
+            '/search': (BuildContext context) => const SearchView(),
             '/profile': (BuildContext context) => ProfileView(),
             '/home': (BuildContext context) => const HomeView(),
             '/mypage': (BuildContext context) => const MyPageView(),

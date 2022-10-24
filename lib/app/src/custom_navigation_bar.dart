@@ -27,7 +27,7 @@ class CustomNavBar extends StatelessWidget {
         case 2:
           return const MapView();
         case 3:
-          return const SearchScreen();
+          return const SearchView();
         case 4:
           return const MyPageView();
       }

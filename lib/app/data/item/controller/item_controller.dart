@@ -8,6 +8,7 @@ class ItemController extends GetxController {
       FirebaseFirestore.instance.collection('items');
 
   var itemList = <Items>[].obs;
+  var searchItem = <Items>[];
 
   final ChipController _chipController = Get.put(ChipController());
 
@@ -51,5 +52,18 @@ class ItemController extends GetxController {
               return Items.fromDocumentSnapshot(snap);
             }).toList());
     }
+  }
+
+  Future<void> search(String query) async {
+    searchItem = [];
+    if (query.isEmpty) {
+      return;
+    }
+    for (Items item in itemList) {
+      if (item.title.contains(query)) {
+        searchItem.add(item);
+      }
+    }
+    update();
   }
 }

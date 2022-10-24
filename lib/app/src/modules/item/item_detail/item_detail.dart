@@ -5,8 +5,8 @@ import 'package:ttangkkeusmarket/app/data/item/controller/item_controller.dart';
 import 'package:get/get.dart';
 import 'package:ttangkkeusmarket/app/data/item/model/item_model.dart';
 
-class DetailScreen extends StatelessWidget {
-  DetailScreen({super.key});
+class DetailView extends StatelessWidget {
+  DetailView({super.key});
 
   late String uid = '';
   final CartController cartController = Get.put(CartController());

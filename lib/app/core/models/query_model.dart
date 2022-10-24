@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class QueryProvider with ChangeNotifier {
+class QueryController extends GetxController {
   String text = '';
 
   void updateText(String newText) {
     text = newText;
-    notifyListeners();
+    update();
   }
 }

@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:ttangkkeusmarket/app/core/models/query_model.dart';
-import 'package:ttangkkeusmarket/app/src/providers/item_provider.dart';
+import 'package:ttangkkeusmarket/app/data/item/controller/item_controller.dart';
+import 'package:get/get.dart';
 
-class SearchScreen extends StatelessWidget {
-  const SearchScreen({Key? key}) : super(key: key);
+class SearchView extends StatelessWidget {
+  const SearchView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final itemProvider = Provider.of<ItemProvider>(context);
-    final queryProvider = Provider.of<QueryProvider>(context);
+    ItemController itemController = Get.put(ItemController());
+    QueryController querycontroller = Get.put(QueryController());
+
     return Scaffold(
       appBar: AppBar(
         title: Column(
           children: [
             TextField(
               onChanged: (text) {
-                queryProvider.updateText(text);
+                querycontroller.updateText(text);
               },
               autofocus: true,
               decoration: const InputDecoration(
@@ -32,7 +33,7 @@ class SearchScreen extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {
-                itemProvider.search(queryProvider.text);
+                itemController.search(querycontroller.text);
               },
               icon: const Icon(Icons.search_rounded))
         ],
@@ -45,13 +46,13 @@ class SearchScreen extends StatelessWidget {
                     crossAxisCount: 2,
                     childAspectRatio: 1 / 1.5,
                   ),
-                  itemCount: itemProvider.searchItem.length,
+                  itemCount: itemController.searchItem.length,
                   itemBuilder: (context, index) {
                     return GridTile(
                         child: InkWell(
                       onTap: () {
                         Navigator.pushNamed(context, '/detail',
-                            arguments: itemProvider.searchItem[index]);
+                            arguments: itemController.searchItem[index]);
                       },
                       child: Container(
                         padding: const EdgeInsets.all(10),
@@ -59,14 +60,15 @@ class SearchScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Image.network(
-                                itemProvider.searchItem[index].imageUrl),
+                                itemController.searchItem[index].imageUrl),
                             Text(
-                              itemProvider.searchItem[index].title,
+                              itemController.searchItem[index].title,
                               style: const TextStyle(fontSize: 20),
                             ),
                             Text(
-                              '${itemProvider.searchItem[index].price}원',
-                              style: const TextStyle(fontSize: 16, color: Colors.red),
+                              '${itemController.searchItem[index].price}원',
+                              style: const TextStyle(
+                                  fontSize: 16, color: Colors.red),
                             )
                           ],
                         ),

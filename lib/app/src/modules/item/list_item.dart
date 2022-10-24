@@ -39,7 +39,12 @@ class ListItems extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image.network(itemController.itemList[index].imageUrl),
+                      Image(
+                        fit: BoxFit.contain,
+                        image: NetworkImage(
+                          itemController.itemList[index].imageUrl,
+                        ),
+                      ),
                       Text(
                         itemController.itemList[index].title,
                         style: const TextStyle(fontSize: 20),
