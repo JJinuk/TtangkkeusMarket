@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:ttangkkeusmarket/app/core/values/app_color.dart';
 import 'package:ttangkkeusmarket/app/core/widgets/custom_appbar.dart';
 import 'package:ttangkkeusmarket/app/core/widgets/reusable_primary_button.dart';
 import 'package:ttangkkeusmarket/app/core/widgets/reusable_textfield.dart';
@@ -26,6 +27,8 @@ class _SellerRegisterViewState extends State<SellerRegisterView> {
   final TextEditingController nameEditingController = TextEditingController();
   String? errorMessage;
   String addressJSON = '';
+  List<bool> isSelected = [false, true];
+
   @override
   Widget build(BuildContext context) {
     SellerController authController = SellerController();
@@ -34,7 +37,7 @@ class _SellerRegisterViewState extends State<SellerRegisterView> {
 
     return Scaffold(
       appBar: CustomAppBar(
-        title: '회원가입',
+        title: '판매자 회원가입',
         leading: IconButton(
           icon: const Icon(LineIcons.angleLeft),
           iconSize: 32.0,
@@ -47,6 +50,46 @@ class _SellerRegisterViewState extends State<SellerRegisterView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              ToggleButtons(
+                isSelected: isSelected,
+                fillColor: AppColor.yellow100,
+                color: AppColor.yellow100.withOpacity(0.5),
+                selectedColor: AppColor.white50,
+                selectedBorderColor: AppColor.yellow100,
+                borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+                borderColor: AppColor.yellow100,
+                splashColor: AppColor.tranparent,
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 12),
+                    child: Text(
+                      '구매자',
+                      style: TextStyle(fontFamily: 'NotoSans', fontSize: 18.0),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 12),
+                    child: Text(
+                      '판매자',
+                      style: TextStyle(fontFamily: 'NotoSans', fontSize: 18.0),
+                    ),
+                  ),
+                ],
+                onPressed: (int index) {
+                  setState(
+                    () {
+                      isSelected[index] = !isSelected[index];
+                      if (isSelected[0]) {
+                        Navigator.popAndPushNamed(context, '/buyer');
+                        isSelected[1] = false;
+                      } else if (isSelected[1]) {
+                        Navigator.popAndPushNamed(context, '/seller');
+                        isSelected[0] = false;
+                      }
+                    },
+                  );
+                },
+              ),
               const SizedBox(height: 10.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,

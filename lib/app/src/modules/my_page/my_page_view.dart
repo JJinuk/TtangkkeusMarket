@@ -72,6 +72,7 @@ class MyPageView extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const LoginView()));
             },
           ),
+          
           ListTile(
             title: const Text('로그아웃'),
             trailing: const Icon(Icons.navigate_next),

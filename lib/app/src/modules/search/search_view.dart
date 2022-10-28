@@ -1,80 +1,79 @@
 import 'package:flutter/material.dart';
-import 'package:ttangkkeusmarket/app/core/models/query_model.dart';
-import 'package:ttangkkeusmarket/app/data/item/controller/item_controller.dart';
 import 'package:get/get.dart';
+import 'package:line_icons/line_icons.dart';
+import 'package:ttangkkeusmarket/app/core/models/query_model.dart';
+import 'package:ttangkkeusmarket/app/core/values/app_color.dart';
+import 'package:ttangkkeusmarket/app/core/widgets/custom_appbar.dart';
+import 'package:ttangkkeusmarket/app/data/item/controller/item_controller.dart';
+import 'package:ttangkkeusmarket/app/src/modules/cart/cart_screen.dart';
 
-class SearchView extends StatelessWidget {
-  const SearchView({Key? key}) : super(key: key);
+class SearchView extends StatefulWidget {
+  const SearchView({super.key});
+
+  @override
+  State<SearchView> createState() => _SearchViewState();
+}
+
+class _SearchViewState extends State<SearchView> {
+  FocusNode focus = FocusNode();
 
   @override
   Widget build(BuildContext context) {
-    ItemController itemController = Get.put(ItemController());
-    QueryController querycontroller = Get.put(QueryController());
-
     return Scaffold(
-      appBar: AppBar(
-        title: Column(
-          children: [
-            TextField(
-              onChanged: (text) {
-                querycontroller.updateText(text);
-              },
-              autofocus: true,
-              decoration: const InputDecoration(
-                hintText: 'search keyword',
-                border: InputBorder.none,
-              ),
-              cursorColor: Colors.grey,
-            )
-          ],
-        ),
-        backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colors.black),
+      appBar: CustomAppBar(
+        title: '마이페이지',
         actions: [
           IconButton(
-              onPressed: () {
-                itemController.search(querycontroller.text);
-              },
-              icon: const Icon(Icons.search_rounded))
+            onPressed: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CartView(),
+                ),
+              ),
+            },
+            icon: const Icon(
+              LineIcons.shoppingCart,
+              size: 32.0,
+              color: Colors.black,
+            ),
+          ),
         ],
       ),
-      body: Column(
+      body: ListView(
         children: [
-          Expanded(
-              child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 1 / 1.5,
-                  ),
-                  itemCount: itemController.searchItem.length,
-                  itemBuilder: (context, index) {
-                    return GridTile(
-                        child: InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/detail',
-                            arguments: itemController.searchItem[index]);
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Image.network(
-                                itemController.searchItem[index].imageUrl),
-                            Text(
-                              itemController.searchItem[index].title,
-                              style: const TextStyle(fontSize: 20),
-                            ),
-                            Text(
-                              '${itemController.searchItem[index].price}원',
-                              style: const TextStyle(
-                                  fontSize: 16, color: Colors.red),
-                            )
-                          ],
-                        ),
-                      ),
-                    ));
-                  }))
+          Container(
+            height: 50,
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            child: TextField(
+              cursorColor: AppColor.yellow100,
+              focusNode: focus,
+              onChanged: (value) {
+                setState(
+                  () {
+                    // query = value;
+                  },
+                );
+              },
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide.none,
+                ),
+                fillColor: AppColor.gray100,
+                filled: true,
+                hintText: "검색어를 입력해주세요",
+                contentPadding: const EdgeInsets.fromLTRB(20, 0, 0, 20),
+                suffixIcon: Icon(
+                  Icons.search,
+                  color: focus.hasFocus ? AppColor.yellow100 : AppColor.gray200,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
         ],
       ),
     );

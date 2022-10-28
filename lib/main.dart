@@ -4,7 +4,7 @@ import 'package:ttangkkeusmarket/app/src/modules/item/item_detail/item_detail.da
 
 import 'package:ttangkkeusmarket/app/src/modules/cart/cart_screen.dart';
 import 'package:ttangkkeusmarket/app/src/modules/register/buyer_register_view.dart';
-import 'package:ttangkkeusmarket/app/src/providers/item_provider.dart';
+import 'package:ttangkkeusmarket/app/src/modules/register/seller_register_view.dart';
 import 'app/firebase_options.dart';
 import 'package:provider/provider.dart';
 
@@ -55,18 +55,19 @@ class MyApp extends StatelessWidget {
           ),
           initialRoute: '/',
           routes: {
-            //'/': (context) => CustomNavBar(),
+            // '/': (BuildContext context) => const HomeView(),
             '/login': (BuildContext context) => const LoginView(),
             '/register': (BuildContext context) => const BuyerRegisterView(),
             '/detail': (BuildContext context) => DetailView(),
-            '/search': (BuildContext context) => const SearchView(),
+            '/search': (BuildContext context) => SearchView(),
             '/profile': (BuildContext context) => ProfileView(),
             '/home': (BuildContext context) => const HomeView(),
             '/mypage': (BuildContext context) => const MyPageView(),
             '/cart': (BuildContext context) => CartView(),
+            '/buyer': (BuildContext context) => const BuyerRegisterView(),
+            '/seller': (BuildContext context) => const SellerRegisterView(),
 
             // '/': (context) => CustomNavBar(),
-            // '/register': (context) => RegisterScreen(),
           },
           home: MultiProvider(
             providers: [

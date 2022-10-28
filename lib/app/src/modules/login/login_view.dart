@@ -17,7 +17,7 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     AuthController authController = AuthController();
-    //final _formKey = GlobalKey<FormState>();
+    // final _formKey = GlobalKey<FormState>();
     // final authService = Provider.of<AuthService>(context);s
     final currentWidth = MediaQuery.of(context).size.width;
 
@@ -32,35 +32,6 @@ class _LoginViewState extends State<LoginView> {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-//       body: GestureDetector(
-//         onTap: () {
-//           FocusScope.of(context).unfocus();
-//         },
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.start,
-//           children: [
-//             Container(
-//               margin: const EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
-//               child: Form(
-//                 child: ReusableTextField(
-//                     key: ValueKey(1),
-//                     controller: authController.loginEmailController,
-//                     validator: (value) {
-//                       if (value!.isEmpty || value.length < 6) {
-//                         return ("Please Enter Your Email");
-//                       }
-//                       if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-//                           .hasMatch(value)) {
-//                         return ("Please Enter a valid email");
-//                       }
-//                       return null;
-//                     },
-//                     // onSaved: (value) {
-//                     //   authController.loginEmailController.text = value!;
-//                     // },
-//                     //loginEmailController.text,
-//                     hintText: "아이디를 입력해주세요."),
-//               ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -94,7 +65,6 @@ class _LoginViewState extends State<LoginView> {
                   hintText: "아이디를 입력해주세요."),
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
             child: TextFormField(
@@ -123,9 +93,6 @@ class _LoginViewState extends State<LoginView> {
                   hintText: "비밀번호를 입력해주세요."),
             ),
           ),
-          //SizedBox(
-          //height: 25.0,
-          //),
           Container(
             margin: const EdgeInsets.fromLTRB(20.0, 25.0, 20.0, 0.0),
             child: Form(
@@ -218,7 +185,8 @@ class _LoginViewState extends State<LoginView> {
                       0xFFF6C544,
                     ),
                     width: 1.0,
-                  ), backgroundColor: Colors.transparent,
+                  ),
+                  backgroundColor: Colors.transparent,
                   elevation: 0.0,
                   shadowColor: Colors.transparent,
                 ),
