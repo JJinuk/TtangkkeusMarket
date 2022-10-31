@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:ttangkkeusmarket/app/core/values/app_color.dart';
@@ -41,8 +42,8 @@ class _SellerRegisterViewState extends State<SellerRegisterView> {
         leading: IconButton(
           icon: const Icon(LineIcons.angleLeft),
           iconSize: 32.0,
-          color: Colors.black,
-          onPressed: () => Navigator.of(context).pop(),
+          color: AppColor.black100,
+          onPressed: () => Get.back(),
         ),
       ),
       body: SafeArea(
@@ -58,7 +59,7 @@ class _SellerRegisterViewState extends State<SellerRegisterView> {
                 selectedBorderColor: AppColor.yellow100,
                 borderRadius: const BorderRadius.all(Radius.circular(5.0)),
                 borderColor: AppColor.yellow100,
-                splashColor: AppColor.tranparent,
+                splashColor: AppColor.transparent,
                 children: const [
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 12),

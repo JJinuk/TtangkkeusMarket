@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:logger/logger.dart';
+import 'package:ttangkkeusmarket/app/core/values/app_color.dart';
 import 'package:ttangkkeusmarket/app/src/modules/item/item_detail/item_detail.dart';
 
-import 'package:ttangkkeusmarket/app/src/modules/cart/cart_screen.dart';
+import 'package:ttangkkeusmarket/app/src/modules/cart/cart_view.dart';
 import 'package:ttangkkeusmarket/app/src/modules/register/buyer_register_view.dart';
 import 'package:ttangkkeusmarket/app/src/modules/register/seller_register_view.dart';
 import 'app/firebase_options.dart';
@@ -48,10 +50,10 @@ class MyApp extends StatelessWidget {
           // ChangeNotifierProvider(create: (_) => QueryProvider()),
           // ChangeNotifierProvider(create: (_) => CartProvider()),
         ],
-        child: MaterialApp(
+        child: GetMaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
-            primaryColor: const Color(0xFFF6C544),
+            primaryColor: AppColor.yellow100,
           ),
           initialRoute: '/',
           routes: {

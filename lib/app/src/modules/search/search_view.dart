@@ -5,7 +5,7 @@ import 'package:ttangkkeusmarket/app/core/models/query_model.dart';
 import 'package:ttangkkeusmarket/app/core/values/app_color.dart';
 import 'package:ttangkkeusmarket/app/core/widgets/custom_appbar.dart';
 import 'package:ttangkkeusmarket/app/data/item/controller/item_controller.dart';
-import 'package:ttangkkeusmarket/app/src/modules/cart/cart_screen.dart';
+import 'package:ttangkkeusmarket/app/src/modules/cart/cart_view.dart';
 
 class SearchView extends StatefulWidget {
   const SearchView({super.key});

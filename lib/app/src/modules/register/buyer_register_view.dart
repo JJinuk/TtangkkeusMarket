@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icon.dart';
+import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:ttangkkeusmarket/app/core/cloud_functions/auth_control.dart';
 import 'package:ttangkkeusmarket/app/core/values/app_color.dart';
@@ -9,7 +9,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:ttangkkeusmarket/app/core/widgets/reusable_primary_button.dart';
 import 'package:ttangkkeusmarket/app/core/widgets/reusable_textfield.dart';
 import 'package:ttangkkeusmarket/app/src/modules/login/login_view.dart';
-import 'package:ttangkkeusmarket/app/src/modules/register/seller_register_view.dart';
 
 class BuyerRegisterView extends StatefulWidget {
   const BuyerRegisterView({Key? key}) : super(key: key);
@@ -40,8 +39,8 @@ class _BuyerRegisterViewState extends State<BuyerRegisterView> {
         leading: IconButton(
           icon: const Icon(LineIcons.angleLeft),
           iconSize: 32.0,
-          color: Colors.black,
-          onPressed: () => Navigator.of(context).pop(),
+          color: AppColor.black100,
+          onPressed: () => Get.back(),
         ),
       ),
       body: SafeArea(
@@ -57,7 +56,7 @@ class _BuyerRegisterViewState extends State<BuyerRegisterView> {
                 selectedBorderColor: AppColor.yellow100,
                 borderRadius: const BorderRadius.all(Radius.circular(5.0)),
                 borderColor: AppColor.yellow100,
-                splashColor: AppColor.tranparent,
+                splashColor: AppColor.transparent,
                 children: const [
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 12),
@@ -138,16 +137,11 @@ class _BuyerRegisterViewState extends State<BuyerRegisterView> {
                       },
                       controller: authController.emailController,
                       hintText: "예: ttangkkeus12@naver.com",
-                      // helperText: "6자 이상의 영문 혹은 영문과 숫자를 조합",
-                      // hintMaxLines: 1,
-                      // helperMaxLines: 1,
                     ),
                   ),
                   const Padding(padding: EdgeInsets.fromLTRB(10, 10, 0, 0)),
                   SizedBox(
                     width: currentWidth / 3.8,
-                    // height: 50.0,
-                    // child: Expanded(
                     child: OutlinedButton(
                       onPressed: () {},
                       style: OutlinedButton.styleFrom(
@@ -211,7 +205,7 @@ class _BuyerRegisterViewState extends State<BuyerRegisterView> {
                   controller: authController.passwordController,
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return 'Please enter the password';
+                      return "비밀번호를 입력해주세요.";
                     }
                     return null;
                   },
@@ -521,7 +515,7 @@ class _BuyerRegisterViewState extends State<BuyerRegisterView> {
                     });*/
                   },
                   hintText: '도로명, 지번, 건물명 검색',
-                  suffixIcon: LineIcon(Icons.search),
+                  suffixIcon: const Icon(LineIcons.search),
                 ),
               ),
               Text(addressJSON), // textfiled 안에 넣어야하는데 에러뜸

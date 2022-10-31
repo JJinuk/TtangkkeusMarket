@@ -10,7 +10,7 @@ class AppColor {
   static const Color gray200 = Color(0xFFA2A7B9);
   static const Color gray100 = Color(0xFFF0F2F3);
   static const Color white50 = Color(0xFFFFFFFF);
-  static const Color tranparent = Colors.transparent;
+  static const Color transparent = Colors.transparent;
 
   static Color hexColor(String? value, {Color? color}) {
     if (value == null) {

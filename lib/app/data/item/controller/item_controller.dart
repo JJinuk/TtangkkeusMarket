@@ -32,7 +32,7 @@ class ItemController extends GetxController {
         return stream.map((snapshot) => snapshot.docs.map((snap) {
               return Items.fromDocumentSnapshot(snap);
             }).toList());
-      case ItemCategory.fluit:
+      case ItemCategory.fruit:
         Stream<QuerySnapshot> stream =
             _itemRef.where('category', isEqualTo: '과일').snapshots();
         return stream.map((snapshot) => snapshot.docs.map((snap) {

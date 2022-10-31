@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:ttangkkeusmarket/app/core/cloud_functions/auth_control.dart';
+import 'package:ttangkkeusmarket/app/core/values/app_color.dart';
 import 'package:ttangkkeusmarket/app/core/widgets/custom_appbar.dart';
 import 'package:ttangkkeusmarket/app/src/modules/my_page/my_page_view.dart';
+import 'package:ttangkkeusmarket/app/src/modules/register/buyer_register_view.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -56,12 +59,18 @@ class _LoginViewState extends State<LoginView> {
               //loginEmailController.text,
               decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(color: Color(0xFFA2A7B9), width: 2.0),
+                    borderSide: const BorderSide(
+                      color: AppColor.gray200,
+                      width: 2.0,
+                    ),
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                   focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black, width: 1.0)),
+                    borderSide: BorderSide(
+                      color: AppColor.black100,
+                      width: 1.0,
+                    ),
+                  ),
                   hintText: "아이디를 입력해주세요."),
             ),
           ),
@@ -85,11 +94,18 @@ class _LoginViewState extends State<LoginView> {
               },
               decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                          color: Color(0xFFA2A7B9), width: 1.0),
-                      borderRadius: BorderRadius.circular(5.0)),
+                    borderSide: const BorderSide(
+                      color: AppColor.gray200,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
                   focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black, width: 1.0)),
+                    borderSide: BorderSide(
+                      color: AppColor.black100,
+                      width: 1.0,
+                    ),
+                  ),
                   hintText: "비밀번호를 입력해주세요."),
             ),
           ),
@@ -101,23 +117,21 @@ class _LoginViewState extends State<LoginView> {
                 height: 40.0,
                 child: ElevatedButton(
                   onPressed: () {
-                    authController.LoginUSER();
+                    // authController.LoginUSER();
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const MyPageView()));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(
-                      0xFFF6C544,
-                    ),
+                    backgroundColor: AppColor.yellow100,
                     elevation: 0.0,
                     shadowColor: Colors.transparent,
                   ),
                   child: const Text(
                     '로그인',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: AppColor.black100,
                       fontFamily: 'SF',
                       fontSize: 20.0,
                       fontWeight: FontWeight.w500,
@@ -139,7 +153,7 @@ class _LoginViewState extends State<LoginView> {
                 child: const Text(
                   '아이디 찾기',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: AppColor.black100,
                     fontFamily: 'SF',
                     fontSize: 14.0,
                     fontWeight: FontWeight.w500,
@@ -156,9 +170,7 @@ class _LoginViewState extends State<LoginView> {
                 child: const Text(
                   '비밀번호 찾기',
                   style: TextStyle(
-                    color: Color(
-                      0xFF000000,
-                    ),
+                    color: AppColor.black100,
                     fontFamily: 'SF',
                     fontSize: 14.0,
                     fontWeight: FontWeight.w500,
@@ -173,17 +185,16 @@ class _LoginViewState extends State<LoginView> {
               width: currentWidth - 15,
               height: 40.0,
               child: ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    isRegisterScreen = false;
-                  });
-                  Navigator.pushNamed(context, '/register');
-                },
+                onPressed: () => Get.to(() => const BuyerRegisterView()),
+                // onPressed: () {
+                //   setState(() {
+                //     isRegisterScreen = false;
+                //   });
+                //   Navigator.pushNamed(context, '/register');
+                // },
                 style: ElevatedButton.styleFrom(
                   side: const BorderSide(
-                    color: Color(
-                      0xFFF6C544,
-                    ),
+                    color: AppColor.yellow100,
                     width: 1.0,
                   ),
                   backgroundColor: Colors.transparent,
@@ -193,9 +204,7 @@ class _LoginViewState extends State<LoginView> {
                 child: const Text(
                   '회원가입',
                   style: TextStyle(
-                    color: Color(
-                      0xFFF6C544,
-                    ),
+                    color: AppColor.yellow100,
                     fontFamily: 'SF',
                     fontSize: 20.0,
                     fontWeight: FontWeight.w500,

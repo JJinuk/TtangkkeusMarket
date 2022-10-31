@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-enum ItemCategory { all, fluit, vagetable, cereals }
+enum ItemCategory { all, fruit, vagetable, cereals }
 
 class Items {
   late String id;
@@ -11,6 +11,7 @@ class Items {
   late String registerDate;
   late String price;
   late String category;
+  late bool? cart;
 
   Items({
     required this.id,
@@ -21,6 +22,7 @@ class Items {
     required this.price,
     required this.registerDate,
     required this.category,
+    this.cart,
   });
 
   Items.fromDocumentSnapshot(QueryDocumentSnapshot snapshot) {

@@ -3,7 +3,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:ttangkkeusmarket/app/core/models/auth_model.dart';
 import 'package:ttangkkeusmarket/app/core/widgets/custom_appbar.dart';
-import 'package:ttangkkeusmarket/app/src/modules/cart/cart_screen.dart';
+import 'package:ttangkkeusmarket/app/src/modules/cart/cart_view.dart';
 import 'package:ttangkkeusmarket/app/src/modules/login/login_view.dart';
 
 class MyPageView extends StatelessWidget {

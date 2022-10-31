@@ -36,8 +36,7 @@ class DetailView extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             child: Text(
               item.title,
-              style:
-                  const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),
           Container(

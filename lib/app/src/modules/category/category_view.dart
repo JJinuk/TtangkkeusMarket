@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:ttangkkeusmarket/app/core/widgets/custom_appbar.dart';
-import 'package:ttangkkeusmarket/app/src/modules/cart/cart_screen.dart';
+import 'package:ttangkkeusmarket/app/src/modules/cart/cart_view.dart';
 
 class CategoryView extends StatelessWidget {
   const CategoryView({super.key});
